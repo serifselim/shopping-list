@@ -1,5 +1,14 @@
 <template>
-  <div class="flex flex-col items-center justify-center h-screen mx-7">
+  <section
+    class="
+      flex flex-col
+      items-center
+      justify-center
+      h-screen
+      max-w-80-persent
+      mx-auto
+    "
+  >
     <img src="../assets/logo.svg" alt="logo" />
     <p class="text-center text-white my-5">
       <span class="font-medium text-main">SEPETEKLE</span>, alışverişlerinizde
@@ -8,21 +17,9 @@
       ürünlere kolayca erişebilirsiniz
     </p>
     <router-link class="w-full" to="/lists">
-      <button
-        class="
-          bg-main
-          py-3
-          w-full
-          rounded-full
-          text-white
-          font-bold
-          hover:bg-main-dark
-        "
-      >
-        Alışverişe Başla
-      </button>
+      <button class="btn">Alışverişe Başla</button>
     </router-link>
-  </div>
+  </section>
 </template>
 <script>
 export default {};
