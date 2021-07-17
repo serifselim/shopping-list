@@ -17,7 +17,10 @@
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0"
+    "@vue/compiler-sfc": "^3.0.0",
+    "autoprefixer": "^9.8.6",
+    "postcss": "^7.0.36",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.4"
   },
   "browserslist": [
     "> 1%",
