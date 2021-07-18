@@ -1,5 +1,5 @@
 <template>
-  <ul class="max-w-80-persent mx-auto mt-12">
+  <ul class="w-10/12 mx-auto mt-12">
     <Item />
     <Item />
   </ul>
