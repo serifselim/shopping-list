@@ -25,7 +25,8 @@ body {
       rounded-2xl
       px-2
       py-3
-      focus:outline-none;
+      focus:outline-none 
+      focus:border-main;
   }
   .action-btn {
     @apply border-gray-light border-2 
@@ -35,6 +36,6 @@ body {
     flex 
     justify-center 
     items-center
-    hover:opacity-80;
+    hover:border-main;
   }
 }

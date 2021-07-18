@@ -1,18 +1,18 @@
 <template>
   <ul>
-    <li class="flex justify-between items-center my-5">
-      <a class="action-btn">
-        <img src="../../assets/icon_cancel.svg" alt="" />
-      </a>
-      <span class="text-white font-bold text-xl">Salı Alışveriş</span>
-      <a class="action-btn">
-        <img src="../../assets/icon_go.svg" alt="" />
-      </a>
-    </li>
+    <Item />
+    <Item />
+    <Item />
+    <Item />
   </ul>
 </template>
 <script>
-export default {};
+import Item from "./Item.vue";
+export default {
+  components: {
+    Item,
+  },
+};
 </script>
 <style lang="">
 </style>
