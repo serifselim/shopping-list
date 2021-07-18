@@ -1,16 +1,16 @@
 <template>
   <ul>
-    <Item />
-    <Item />
-    <Item />
-    <Item />
+    <Basket />
+    <Basket />
+    <Basket />
+    <Basket />
   </ul>
 </template>
 <script>
-import Item from "./Item.vue";
+import Basket from "./Basket.vue";
 export default {
   components: {
-    Item,
+    Basket,
   },
 };
 </script>

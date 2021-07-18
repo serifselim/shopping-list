@@ -32,6 +32,7 @@ body {
     @apply border-gray-light border-2 
     rounded-2xl p-2
     w-11
+    cursor-pointer
     h-11
     flex 
     justify-center 

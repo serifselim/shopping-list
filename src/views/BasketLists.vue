@@ -1,18 +1,18 @@
 <template>
   <Header />
   <section class="max-w-80-persent flex flex-col mx-auto">
-    <Add />
-    <List />
+    <AddBasket />
+    <BasketList />
   </section>
 </template>
 <script>
-import { Add, List, Header } from "../components";
+import { AddBasket, BasketList, Header } from "../components";
 
 export default {
   components: {
-    Add,
+    AddBasket,
     Header,
-    List,
+    BasketList,
   },
 };
 </script>

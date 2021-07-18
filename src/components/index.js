@@ -1,9 +1,14 @@
 import Header from './Header/Header.vue';
-import Add from './Basket/Add.vue';
-import List from './Basket/List.vue';
+import AddBasket from './Baskets/AddBasket.vue';
+import BasketList from './Baskets/BasketList.vue';
+
+import Return from './Details/Return.vue';
+import ItemList from './Details/ItemList.vue';
 
 export {
-    Add,
+    AddBasket,
     Header,
-    List,
+    BasketList,
+    Return,
+    ItemList
 }
