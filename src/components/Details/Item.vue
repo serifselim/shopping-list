@@ -16,5 +16,10 @@
   </li>
 </template>
 <script>
-export default {};
+export default {
+  props: ["item", "index"],
+  setup(props) {
+    console.log(props);
+  },
+};
 </script>

@@ -3,9 +3,19 @@
     <router-link to="/lists" class="action-btn mr-4">
       <img src="../../assets/icon_return.svg" alt="" />
     </router-link>
-    <h1 class="text-white text-3xl font-bold -mt-1">Salı Alışveriş</h1>
+    <h1 class="text-white text-3xl font-bold -mt-1">{{ basket.title }}</h1>
   </div>
 </template>
 <script>
-export default {};
+// import { ref, onMounted } from "vue";
+import { useStore } from "vuex";
+export default {
+  setup() {
+    const store = useStore();
+
+    return {
+      basket: store.state.baskets[store.state.index],
+    };
+  },
+};
 </script>

@@ -3,12 +3,28 @@
     <a class="action-btn">
       <img src="../../assets/icon_cancel.svg" alt="" />
     </a>
-    <span class="text-white font-bold text-xl">Salı Alışveriş</span>
-    <a class="action-btn">
+    <span class="text-white font-bold text-xl">{{ title }}</span>
+    <router-link to="/details" @click="setIndex(index)" class="action-btn">
       <img src="../../assets/icon_go.svg" alt="" />
-    </a>
+    </router-link>
   </li>
 </template>
 <script>
-export default {};
+import { useStore } from "vuex";
+
+export default {
+  props: ["title", "index"],
+
+  setup() {
+    const store = useStore();
+
+    const setIndex = (index) => {
+      store.commit("changeIndex", index);
+    };
+
+    return {
+      setIndex,
+    };
+  },
+};
 </script>

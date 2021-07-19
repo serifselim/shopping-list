@@ -2,22 +2,48 @@
   <form
     style="transform: translateX(-50%)"
     class="fixed w-10/12 inset-x-1/2 bottom-0 my-8"
+    @submit.prevent="addItem()"
   >
     <div class="flex">
       <input
         type="text"
         class="item-input mr-3 w-8/12"
         placeholder="Bir Ürün Ekle"
+        v-model="title"
       />
       <input
         type="number"
         class="item-input ml-3 w-4/12"
         placeholder="Miktar"
+        v-model="count"
       />
     </div>
-    <button class="btn">Ürün Ekle</button>
+    <button type="submit" class="btn">Ürün Ekle</button>
   </form>
 </template>
 <script>
-export default {};
+import { ref } from "vue";
+import { useStore } from "vuex";
+
+export default {
+  setup() {
+    const store = useStore();
+    const title = ref("");
+    const count = ref(0);
+
+    const addItem = () => {
+      const item = {
+        title,
+        count,
+      };
+      store.dispatch("setAddItem", item);
+    };
+
+    return {
+      title,
+      count,
+      addItem,
+    };
+  },
+};
 </script>
