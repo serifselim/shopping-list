@@ -18,12 +18,15 @@ export default {
     const basketName = ref("");
     const store = useStore();
 
-    console.log(store);
-
     const setBasket = () => {
       const basket = {
         title: basketName.value,
-        items: [],
+        items: [
+          {
+            title: "deneme",
+            count: 4,
+          },
+        ],
       };
       store.dispatch("setAddBasket", basket);
     };

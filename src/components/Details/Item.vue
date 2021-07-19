@@ -3,8 +3,10 @@
     <a class="action-btn mr-3">
       <img src="../../assets/icon_cancel.svg" />
     </a>
-    <span class="text-white text-xl"
-      >Tuvalet Terliği (<span class="text-main font-bold">+1</span>)</span
+    <span class="text-white text-2xl"
+      >{{ basketItem.title }} (<span class="text-main font-bold"
+        >+{{ basketItem.count }}</span
+      >)</span
     >
 
     <a class="action-btn ml-auto">
@@ -17,9 +19,12 @@
 </template>
 <script>
 export default {
-  props: ["item", "index"],
-  setup(props) {
-    console.log(props);
+  props: ["basketItem", "index"],
+  setup({ basketItem, index }) {
+    return {
+      basketItem,
+      index,
+    };
   },
 };
 </script>

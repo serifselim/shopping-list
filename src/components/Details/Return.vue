@@ -12,9 +12,10 @@ import { useStore } from "vuex";
 export default {
   setup() {
     const store = useStore();
+    const basket = store.state.baskets[store.state.index];
 
     return {
-      basket: store.state.baskets[store.state.index],
+      basket,
     };
   },
 };

@@ -2,7 +2,7 @@
   <form
     style="transform: translateX(-50%)"
     class="fixed w-10/12 inset-x-1/2 bottom-0 my-8"
-    @submit.prevent="addItem()"
+    @submit.prevent="addItem"
   >
     <div class="flex">
       <input
@@ -28,15 +28,19 @@ import { useStore } from "vuex";
 export default {
   setup() {
     const store = useStore();
-    const title = ref("");
-    const count = ref(0);
+    let title = ref("");
+    let count = ref(1);
 
     const addItem = () => {
       const item = {
-        title,
-        count,
+        title: title.value,
+        count: count.value,
       };
+
       store.dispatch("setAddItem", item);
+
+      title.value = "";
+      count.value = 1;
     };
 
     return {
