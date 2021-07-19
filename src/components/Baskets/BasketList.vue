@@ -1,6 +1,6 @@
 <template>
-  <ul v-for="(basket, index) in baskets" :key="index">
-    <Basket :title="basket.title" :index="index" />
+  <ul v-for="basket in baskets" :key="basket.id">
+    <Basket :basket="basket" />
   </ul>
 </template>
 <script>
@@ -12,10 +12,10 @@ export default {
     Basket,
   },
   setup() {
-    const { state } = useStore();
+    const { getters } = useStore();
 
     return {
-      baskets: state.baskets,
+      baskets: getters.getBaskets,
     };
   },
 };

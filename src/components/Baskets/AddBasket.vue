@@ -13,6 +13,8 @@
 <script>
 import { ref } from "vue";
 import { useStore } from "vuex";
+import { v4 as uuidv4 } from "uuid";
+
 export default {
   setup() {
     const basketName = ref("");
@@ -20,6 +22,7 @@ export default {
 
     const setBasket = () => {
       const basket = {
+        id: uuidv4(),
         title: basketName.value,
         items: [],
       };

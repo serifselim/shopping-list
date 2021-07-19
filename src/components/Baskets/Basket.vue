@@ -13,9 +13,9 @@
 import { useStore } from "vuex";
 
 export default {
-  props: ["title", "index"],
+  props: ["basket"],
 
-  setup({ index }) {
+  setup({ basket }) {
     const { commit, dispatch } = useStore();
 
     const setIndex = () => {
@@ -23,10 +23,11 @@ export default {
     };
 
     const deleteBasket = () => {
-      dispatch("setDeleteBasket", index);
+      dispatch("setDeleteBasket", basket.id);
     };
 
     return {
+      title: basket.title,
       setIndex,
       deleteBasket,
     };

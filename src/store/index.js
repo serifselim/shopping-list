@@ -6,6 +6,10 @@ export default createStore({
     index: 0
   },
   getters: {
+    getBaskets({ baskets }) {
+      return baskets;
+    },
+
     getItems({ baskets, index }) {
       return baskets[index].items;
     },
@@ -15,8 +19,9 @@ export default createStore({
       baskets.push(payload);
     },
 
-    deleteBasket({ baskets }, value) {
-      baskets.splice(value, 1);
+    deleteBasket({ baskets }, id) {
+      baskets = baskets.filter(basket => basket.id != id);
+      // baskets.splice(value, 1);
     },
 
     changeIndex({ index }, payload) {
@@ -37,8 +42,8 @@ export default createStore({
       commit('addBasket', payload);
     },
 
-    setDeleteBasket({ commit }, value) {
-      commit('deleteBasket', value)
+    setDeleteBasket({ commit }, id) {
+      commit('deleteBasket', id)
     },
 
     setAddItem({ commit }, payload) {
