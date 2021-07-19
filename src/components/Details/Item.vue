@@ -4,8 +4,7 @@
       <img src="../../assets/icon_cancel.svg" />
     </a>
     <span class="text-white text-2xl"
-      >{{ basketItem.title }} (<span class="text-main font-bold"
-        >+{{ basketItem.count }}</span
+      >{{ title }} (<span class="text-main font-bold">+{{ count }}</span
       >)</span
     >
 
@@ -22,7 +21,8 @@ export default {
   props: ["basketItem", "index"],
   setup({ basketItem, index }) {
     return {
-      basketItem,
+      title: basketItem.title,
+      count: basketItem.count,
       index,
     };
   },

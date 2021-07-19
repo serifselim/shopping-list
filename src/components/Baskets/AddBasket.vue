@@ -6,7 +6,7 @@
       type="text"
       placeholder="Yeni Bir Sepet Ekleyin"
     />
-    <button class="btn">Sepet Ekle</button>
+    <button type="submit" class="btn">Sepet Ekle</button>
   </form>
 </template>
 
@@ -21,12 +21,7 @@ export default {
     const setBasket = () => {
       const basket = {
         title: basketName.value,
-        items: [
-          {
-            title: "deneme",
-            count: 4,
-          },
-        ],
+        items: [],
       };
       store.dispatch("setAddBasket", basket);
     };
