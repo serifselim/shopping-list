@@ -1,6 +1,6 @@
 <template >
   <li class="flex items-center my-6">
-    <a class="action-btn mr-3">
+    <a class="action-btn mr-3" @click.prevent="deleteItem">
       <img src="../../assets/icon_cancel.svg" />
     </a>
     <span class="text-white text-2xl"
@@ -17,13 +17,22 @@
   </li>
 </template>
 <script>
+import { useStore } from "vuex";
+
 export default {
   props: ["basketItem", "index"],
   setup({ basketItem, index }) {
+    const store = useStore();
+
+    const deleteItem = () => {
+      store.dispatch("setDeleteBasket", index);
+    };
+
     return {
       title: basketItem.title,
       count: basketItem.count,
       index,
+      deleteItem,
     };
   },
 };

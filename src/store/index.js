@@ -30,6 +30,7 @@ export default createStore({
     },
 
     setDeleteBasket({ commit }, index) {
+      console.log(index);
       commit('deleteBasket', index)
     },
 
