@@ -24,6 +24,7 @@
 <script>
 import { ref } from "vue";
 import { useStore } from "vuex";
+import { v4 as uuidv4 } from "uuid";
 
 export default {
   setup() {
@@ -33,6 +34,7 @@ export default {
 
     const addItem = () => {
       const item = {
+        id: uuidv4(),
         title: title.value,
         count: count.value,
       };

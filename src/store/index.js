@@ -2,25 +2,33 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    baskets: [
-    ],
+    baskets: [],
     index: 0
   },
+  getters: {
+    getItems({ baskets, index }) {
+      return baskets[index].items;
+    },
+  },
   mutations: {
-    addBasket(state, payload) {
-      state.baskets.push(payload);
+    addBasket({ baskets }, payload) {
+      baskets.push(payload);
     },
 
-    deleteBasket(state, index) {
-      state.baskets.splice(index, 1);
+    deleteBasket({ baskets }, value) {
+      baskets.splice(value, 1);
     },
 
-    changeIndex(state, payload) {
-      state.index = payload;
+    changeIndex({ index }, payload) {
+      index = payload;
     },
 
-    addItem(state, payload) {
-      state.baskets[state.index].items.push(payload)
+    addItem({ baskets, index }, payload) {
+      baskets[index].items.push(payload);
+    },
+
+    deleteItem({ baskets, index }, id) {
+      baskets[index].items = baskets[index].items.filter(item => item.id != id);
     }
   },
   actions: {
@@ -29,15 +37,17 @@ export default createStore({
       commit('addBasket', payload);
     },
 
-    setDeleteBasket({ commit }, index) {
-      console.log(index);
-      commit('deleteBasket', index)
+    setDeleteBasket({ commit }, value) {
+      commit('deleteBasket', value)
     },
 
     setAddItem({ commit }, payload) {
       commit('addItem', payload)
     },
 
+    setDeleteItem({ commit }, id) {
+      commit('deleteItem', id)
+    }
 
   },
 })

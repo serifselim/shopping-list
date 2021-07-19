@@ -22,10 +22,10 @@ import { useStore } from "vuex";
 export default {
   props: ["basketItem", "index"],
   setup({ basketItem, index }) {
-    const store = useStore();
+    const { dispatch } = useStore();
 
     const deleteItem = () => {
-      store.dispatch("setDeleteBasket", index);
+      dispatch("setDeleteItem", basketItem.id);
     };
 
     return {

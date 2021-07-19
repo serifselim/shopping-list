@@ -1,13 +1,14 @@
 <template>
   <ul
     class="w-10/12 mx-auto mt-12"
-    v-for="(basketItem, index) in basketItems"
-    :key="index"
+    v-for="basketItem in basketItems"
+    :key="basketItem.id"
   >
     <Item :basketItem="basketItem" :index="index" />
   </ul>
 </template>
 <script>
+import { computed } from "vue";
 import Item from "./Item.vue";
 import { useStore } from "vuex";
 export default {
@@ -15,10 +16,10 @@ export default {
     Item,
   },
   setup() {
-    const { state } = useStore();
+    const store = useStore();
 
     return {
-      basketItems: state.baskets[state.index].items,
+      basketItems: computed(() => store.getters.getItems),
     };
   },
 };
