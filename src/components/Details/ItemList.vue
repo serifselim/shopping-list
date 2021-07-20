@@ -1,6 +1,6 @@
 <template>
   <ul
-    class="w-10/12 mx-auto mt-12"
+    class="w-10/12 lg:w-4/12 mx-auto mt-12"
     v-for="basketItem in basketItems"
     :key="basketItem.id"
   >

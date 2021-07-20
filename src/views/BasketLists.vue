@@ -1,6 +1,6 @@
 <template>
   <Header />
-  <section class="w-10/12 flex flex-col mx-auto">
+  <section class="w-10/12 lg:w-4/12 flex flex-col mx-auto">
     <AddBasket />
     <BasketList />
   </section>

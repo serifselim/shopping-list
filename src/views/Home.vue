@@ -1,6 +1,14 @@
 <template>
   <section
-    class="flex flex-col items-center justify-center h-screen w-10/12 mx-auto"
+    class="
+      flex flex-col
+      items-center
+      justify-center
+      h-screen
+      w-10/12
+      lg:w-4/12
+      mx-auto
+    "
   >
     <img src="../assets/logo.svg" alt="logo" />
     <p class="text-center text-white my-5">

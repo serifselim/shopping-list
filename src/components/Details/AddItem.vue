@@ -1,7 +1,7 @@
 <template>
   <form
     style="transform: translateX(-50%)"
-    class="fixed w-10/12 inset-x-1/2 bottom-0 my-8"
+    class="fixed w-10/12 lg:w-4/12 inset-x-1/2 bottom-0 my-8"
     @submit.prevent="addItem"
   >
     <div class="flex">

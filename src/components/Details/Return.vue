@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center max-w-80-persent mx-auto my-4">
+  <div class="flex items-center max-w-80-persent lg:w-4/12 mx-auto my-4">
     <router-link to="/lists" class="action-btn mr-4">
       <img src="../../assets/icon_return.svg" alt="" />
     </router-link>
