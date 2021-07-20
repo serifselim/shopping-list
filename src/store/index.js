@@ -45,6 +45,14 @@ export default createStore({
 
     deleteItem({ baskets, index }, id) {
       baskets[index].items = baskets[index].items.filter(item => item.id != id);
+    },
+
+    checkItem({ baskets, index }, id) {
+      baskets[index].items.map(basket => {
+        if (basket.id === id) {
+          basket.check = !basket.check
+        }
+      })
     }
   },
   actions: {

@@ -38,6 +38,7 @@ export default {
           id: uuidv4(),
           title: title.value,
           count: count.value,
+          check: false,
         };
 
         store.dispatch("setAddItem", item);
