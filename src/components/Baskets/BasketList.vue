@@ -13,12 +13,14 @@ export default {
     Basket,
   },
   setup() {
-    const { state } = useStore();
+    const { getters } = useStore();
 
-    console.log(computed(() => state.baskets));
+    const baskets = computed(() => {
+      return getters.getBaskets;
+    });
 
     return {
-      baskets: computed(() => state.baskets),
+      baskets,
     };
   },
 };

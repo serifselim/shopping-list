@@ -18,7 +18,7 @@ import { v4 as uuidv4 } from "uuid";
 export default {
   setup() {
     const basketName = ref("");
-    const { commit } = useStore();
+    const { dispatch } = useStore();
 
     const setBasket = () => {
       const basket = {
@@ -26,7 +26,7 @@ export default {
         title: basketName.value,
         items: [],
       };
-      commit("addBasket", basket);
+      dispatch("setAddBasket", basket);
       basketName.value = "";
     };
 

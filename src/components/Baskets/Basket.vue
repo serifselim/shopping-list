@@ -15,10 +15,10 @@ import { useStore } from "vuex";
 export default {
   props: ["basket"],
   setup({ basket }) {
-    const { commit } = useStore();
+    const { dispatch } = useStore();
 
     const deleteBasket = () => {
-      commit("deleteBasket", basket.id);
+      dispatch("setDeleteBasket", basket.id);
     };
 
     const setItems = () => {

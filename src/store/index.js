@@ -6,12 +6,23 @@ export default createStore({
     index: 0
   },
   getters: {
+    getBaskets({ baskets }) {
+      return baskets;
+    },
     getItems({ baskets, index }) {
       return baskets[index].items;
-    }
+    },
   },
 
   mutations: {
+    getLocalStorage(state, payload) {
+      state.baskets = payload;
+    },
+
+    setLocalStorage(state) {
+      localStorage.setItem('baskets', JSON.stringify(state.baskets));
+    },
+
     addBasket({ baskets }, payload) {
       baskets.push(payload);
     },
@@ -38,12 +49,24 @@ export default createStore({
   },
   actions: {
 
+    setAddBasket({ commit }, payload) {
+      commit('addBasket', payload);
+      commit('setLocalStorage');
+    },
+
+    setDeleteBasket({ commit }, id) {
+      commit('deleteBasket', id);
+      commit('setLocalStorage');
+    },
+
     setAddItem({ commit }, payload) {
-      commit('addItem', payload)
+      commit('addItem', payload);
+      commit('setLocalStorage');
     },
 
     setDeleteItem({ commit }, id) {
-      commit('deleteItem', id)
+      commit('deleteItem', id);
+      commit('setLocalStorage');
     }
 
   },
