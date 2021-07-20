@@ -4,6 +4,7 @@
   </ul>
 </template>
 <script>
+import { computed } from "vue";
 import { useStore } from "vuex";
 import Basket from "./Basket.vue";
 
@@ -12,10 +13,12 @@ export default {
     Basket,
   },
   setup() {
-    const { getters } = useStore();
+    const { state } = useStore();
+
+    console.log(computed(() => state.baskets));
 
     return {
-      baskets: getters.getBaskets,
+      baskets: computed(() => state.baskets),
     };
   },
 };

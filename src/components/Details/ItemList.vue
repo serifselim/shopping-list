@@ -16,10 +16,10 @@ export default {
     Item,
   },
   setup() {
-    const store = useStore();
+    const { getters } = useStore();
 
     return {
-      basketItems: computed(() => store.getters.getItems),
+      basketItems: computed(() => getters.getItems),
     };
   },
 };

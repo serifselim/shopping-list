@@ -1,11 +1,11 @@
 <template>
   <li class="flex justify-between items-center my-5">
     <a class="action-btn" @click.prevent="deleteBasket">
-      <img src="../../assets/icon_cancel.svg" alt="" />
+      <img src="../../assets/icon_cancel.svg" />
     </a>
     <span class="text-white font-bold text-xl">{{ title }}</span>
-    <router-link to="/details" @click="setIndex" class="action-btn">
-      <img src="../../assets/icon_go.svg" alt="" />
+    <router-link to="/details" class="action-btn">
+      <img src="../../assets/icon_go.svg" />
     </router-link>
   </li>
 </template>
@@ -14,21 +14,15 @@ import { useStore } from "vuex";
 
 export default {
   props: ["basket"],
-
   setup({ basket }) {
-    const { commit, dispatch } = useStore();
-
-    const setIndex = () => {
-      commit("changeIndex", index);
-    };
+    const { commit } = useStore();
 
     const deleteBasket = () => {
-      dispatch("setDeleteBasket", basket.id);
+      commit("deleteBasket", basket.id);
     };
 
     return {
       title: basket.title,
-      setIndex,
       deleteBasket,
     };
   },
