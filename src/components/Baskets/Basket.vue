@@ -15,7 +15,7 @@ import { useStore } from "vuex";
 export default {
   props: ["basket"],
   setup({ basket }) {
-    const { dispatch } = useStore();
+    const { dispatch, commit } = useStore();
 
     const deleteBasket = () => {
       dispatch("setDeleteBasket", basket.id);
