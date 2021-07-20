@@ -4,7 +4,7 @@
       <img src="../../assets/icon_cancel.svg" />
     </a>
     <span class="text-white font-bold text-xl">{{ title }}</span>
-    <router-link to="/details" class="action-btn">
+    <router-link to="/details" @click.prevent="setItems" class="action-btn">
       <img src="../../assets/icon_go.svg" />
     </router-link>
   </li>
@@ -21,9 +21,14 @@ export default {
       commit("deleteBasket", basket.id);
     };
 
+    const setItems = () => {
+      commit("setItems", basket.id);
+    };
+
     return {
       title: basket.title,
       deleteBasket,
+      setItems,
     };
   },
 };

@@ -3,6 +3,12 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     baskets: [],
+    index: 0
+  },
+  getters: {
+    getItems({ baskets, index }) {
+      return baskets[index].items;
+    }
   },
 
   mutations: {
@@ -11,8 +17,15 @@ export default createStore({
     },
 
     deleteBasket(state, id) {
-      console.log(id);
       state.baskets = state.baskets.filter(basket => basket.id != id);
+    },
+
+    setItems(state, id) {
+      state.baskets.map((basket, index) => {
+        if (basket.id === id) {
+          state.index = index;
+        }
+      })
     },
 
     addItem({ baskets, index }, payload) {
