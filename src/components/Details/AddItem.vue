@@ -33,16 +33,20 @@ export default {
     let count = ref(1);
 
     const addItem = () => {
-      const item = {
-        id: uuidv4(),
-        title: title.value,
-        count: count.value,
-      };
+      if (title.value != "" && count.value > 0) {
+        const item = {
+          id: uuidv4(),
+          title: title.value,
+          count: count.value,
+        };
 
-      store.dispatch("setAddItem", item);
+        store.dispatch("setAddItem", item);
 
-      title.value = "";
-      count.value = 1;
+        title.value = "";
+        count.value = 1;
+      } else {
+        alert("Lütfen Geçerli Bir Ürün Giriniz !");
+      }
     };
 
     return {

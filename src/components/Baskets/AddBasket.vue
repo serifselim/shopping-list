@@ -21,13 +21,17 @@ export default {
     const { dispatch } = useStore();
 
     const setBasket = () => {
-      const basket = {
-        id: uuidv4(),
-        title: basketName.value,
-        items: [],
-      };
-      dispatch("setAddBasket", basket);
-      basketName.value = "";
+      if (basketName.value != "") {
+        const basket = {
+          id: uuidv4(),
+          title: basketName.value,
+          items: [],
+        };
+        dispatch("setAddBasket", basket);
+        basketName.value = "";
+      } else {
+        alert("Lütfen Bir Sepet Giriniz !");
+      }
     };
 
     return {
