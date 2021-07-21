@@ -3,7 +3,13 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     baskets: [],
-    index: 0
+    index: 0,
+    changeItem: {
+      id: "",
+      title: "",
+      count: 0
+    },
+    isChange: false
   },
   getters: {
     getBaskets({ baskets }) {
@@ -47,13 +53,37 @@ export default createStore({
       baskets[index].items = baskets[index].items.filter(item => item.id != id);
     },
 
-    checkItem({ baskets, index }, id) {
+    checkItem(state, id) {
+      state.baskets[state.index].items.map(basket => {
+        if (basket.id === id) {
+          basket.check = !basket.check;
+        }
+      })
+    },
+
+    changeTrigger(state) {
+      state.isChange = true;
+    },
+
+    getChangeItem({ baskets, index, changeItem }, id) {
       baskets[index].items.map(basket => {
         if (basket.id === id) {
-          basket.check = !basket.check
+          changeItem.id = basket.id;
+          changeItem.title = basket.title;
+          changeItem.count = basket.count;
+        }
+      })
+    },
+
+    setChangeItem({ baskets, index }, payload) {
+      baskets[index].items.map(basket => {
+        if (basket.id === payload.value.id) {
+          basket.title = payload.value.title;
+          basket.count = payload.value.count;
         }
       })
     }
+
   },
   actions: {
 
@@ -75,6 +105,16 @@ export default createStore({
     setDeleteItem({ commit }, id) {
       commit('deleteItem', id);
       commit('setLocalStorage');
+    },
+
+    getChangeItem({ commit }, id) {
+      commit('changeTrigger');
+      commit('getChangeItem', id);
+    },
+
+    setChangeItem({ commit }, payload) {
+      // commit('changeTrigger');
+      commit('setChangeItem', payload);
     }
 
   },

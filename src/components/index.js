@@ -5,6 +5,7 @@ import BasketList from './Baskets/BasketList.vue';
 import Return from './Details/Return.vue';
 import ItemList from './Details/ItemList.vue';
 import AddItem from './Details/AddItem.vue';
+import ChangeItem from './Details/ChangeItem.vue';
 
 export {
     AddBasket,
@@ -12,5 +13,6 @@ export {
     BasketList,
     Return,
     AddItem,
+    ChangeItem,
     ItemList
 }

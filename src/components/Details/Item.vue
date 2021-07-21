@@ -11,9 +11,10 @@
       >)</span
     >
 
-    <a class="action-btn ml-auto">
+    <a class="action-btn ml-auto" @click.prevent="setChangeTrigger">
       <img src="../../assets/icon_option.svg" />
     </a>
+
     <a
       v-if="!basketItem.check"
       class="action-btn ml-3"
@@ -43,9 +44,14 @@ export default {
       commit("setLocalStorage");
     };
 
+    const setChangeTrigger = () => {
+      dispatch("getChangeItem", basketItem.id);
+    };
+
     return {
       deleteItem,
       checkItem,
+      setChangeTrigger,
     };
   },
 };
