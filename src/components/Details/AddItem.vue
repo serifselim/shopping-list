@@ -7,18 +7,18 @@
     <div class="flex">
       <input
         type="text"
-        class="item-input mr-3 w-8/12"
+        class="item-input mr-3 w-8/12 focus:border-main"
         placeholder="Bir Ürün Ekle"
         v-model="title"
       />
       <input
         type="number"
-        class="item-input ml-3 w-4/12"
+        class="item-input ml-3 w-4/12 focus:border-main"
         placeholder="Miktar"
         v-model="count"
       />
     </div>
-    <button type="submit" class="btn">Ürün Ekle</button>
+    <button type="submit" class="btn bg-main">Ürün Ekle</button>
   </form>
 </template>
 <script>

@@ -18,7 +18,7 @@
       ürünlere kolayca erişebilirsiniz
     </p>
     <router-link class="w-full" to="/lists">
-      <button class="btn">Alışverişe Başla</button>
+      <button class="btn bg-main">Alışverişe Başla</button>
     </router-link>
   </section>
 </template>

@@ -8,8 +8,7 @@ body {
 
 @layer utilities {
   .btn {
-    @apply bg-main
-        py-3
+    @apply py-3
         w-full
         rounded-2xl
         text-white
@@ -36,8 +35,7 @@ body {
         rounded-2xl
         px-2
         py-3
-        focus:outline-none 
-        focus:border-main;
+        focus:outline-none;
   }
   .action-btn {
     @apply border-gray-light border-2 

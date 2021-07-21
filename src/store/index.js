@@ -62,7 +62,7 @@ export default createStore({
     },
 
     changeTrigger(state) {
-      state.isChange = true;
+      state.isChange = !state.isChange;
     },
 
     getChangeItem({ baskets, index, changeItem }, id) {
@@ -113,8 +113,9 @@ export default createStore({
     },
 
     setChangeItem({ commit }, payload) {
-      // commit('changeTrigger');
+      commit('changeTrigger');
       commit('setChangeItem', payload);
+      commit('setLocalStorage');
     }
 
   },

@@ -6,7 +6,7 @@
       type="text"
       placeholder="Yeni Bir Sepet Ekleyin"
     />
-    <button type="submit" class="btn">Sepet Ekle</button>
+    <button type="submit" class="btn bg-main">Sepet Ekle</button>
   </form>
 </template>
 

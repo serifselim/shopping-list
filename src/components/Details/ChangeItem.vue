@@ -7,22 +7,22 @@
     <div class="flex">
       <input
         type="text"
-        class="item-input mr-3 w-8/12"
+        class="item-input mr-3 w-8/12 focus:border-yellow-600"
         placeholder="Bir Ürün Ekle"
         v-model="item.title"
       />
       <input
         type="number"
-        class="item-input ml-3 w-4/12"
+        class="item-input ml-3 w-4/12 focus:border-yellow-600"
         placeholder="Miktar"
         v-model="item.count"
       />
     </div>
-    <button type="submit" class="btn">Ürünü Değiştir</button>
+    <button type="submit" class="btn bg-yellow-600">Ürünü Değiştir</button>
   </form>
 </template>
 <script>
-import { computed, ref } from "vue";
+import { ref } from "vue";
 import { useStore } from "vuex";
 
 export default {
@@ -37,7 +37,11 @@ export default {
     item.value = state.changeItem;
 
     const setChangeItem = () => {
-      dispatch("setChangeItem", item);
+      if (item.value.title != "" && item.value.count > 0) {
+        dispatch("setChangeItem", item);
+      } else {
+        alert("Lütfen Geçerli Bir Değer Giriniz !");
+      }
     };
 
     return {
